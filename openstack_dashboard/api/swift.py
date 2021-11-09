@@ -156,7 +156,7 @@ def swift_get_containers(request, marker=None, prefix=None):
     headers, containers = swift_api(request).get_account(limit=limit + 1,
                                                          marker=marker,
                                                          prefix=prefix,
-                                                         full_listing=True)
+                                                         full_listing=False)
     container_objs = [Container(c) for c in containers]
     if(len(container_objs) > limit):
         return (container_objs[0:-1], True)
@@ -241,7 +241,7 @@ def swift_get_objects(request, container_name, prefix=None, marker=None,
                   marker=marker,
                   limit=limit + 1,
                   delimiter=FOLDER_DELIMITER,
-                  full_listing=True)
+                  full_listing=False)
     headers, objects = swift_api(request).get_container(container_name,
                                                         **kwargs)
     object_objs = _objectify(objects, container_name)
