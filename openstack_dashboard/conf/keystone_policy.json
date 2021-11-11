@@ -170,5 +170,9 @@
     "identity:list_domains_for_user": "",
     "identity:create_user": "rule:admin_required",
     "identity:update_user": "rule:admin_required",
-    "identity:delete_user": "rule:admin_required"
+    "identity:delete_user": "rule:admin_required",
+    "project_mod": "role:project_mod",
+    "project_admin": "role:project_admin",
+    "project_mod_or_admin": "rule:admin_required or rule:project_mod or rule:project_admin",
+    "project_admin_only": "rule:admin_required or rule:project_admin"
 }
